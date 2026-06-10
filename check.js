@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 
 const MINI =  "https://www.apple.com/shop/refurbished/mac/mac-mini"
 const MBP = "https://www.apple.com/shop/refurbished/mac/macbook-pro"
+const TARGET = MINI
 
 function getRequiredEnv(name) {
   const value = process.env[name];
@@ -39,7 +40,7 @@ async function sendInventoryEmail() {
 async function checkMacMini() {
   try {
     const response = await axios.get(
-      MINI,
+      TARGET,
       {
         maxRedirects: 0,
         validateStatus: null
