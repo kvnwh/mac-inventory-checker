@@ -36,3 +36,16 @@ If Apple redirects the Mac mini refurb page back to the general refurbished Mac 
 ## Notes
 
 `.env` and `node_modules/` are ignored by Git. Commit `package.json`, `package-lock.json`, `check.js`, `.gitignore`, and this README.
+
+## GitHub Actions
+
+The workflow in `.github/workflows/check-inventory.yml` runs once per hour and can also be started manually from GitHub.
+
+Add these repository secrets in GitHub under Settings > Secrets and variables > Actions:
+
+- `EMAIL_TO`: the address that should receive inventory alerts
+- `EMAIL_FROM`: the Gmail address sending the alert
+- `SMTP_USER`: the Gmail address sending the alert
+- `SMTP_PASS`: your Gmail App Password
+
+After the workflow is pushed to GitHub, open the Actions tab, select "Check Mac Mini Refurb Inventory", and use "Run workflow" to test it once manually.
